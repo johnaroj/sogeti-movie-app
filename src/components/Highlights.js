@@ -5,7 +5,7 @@ const Highlights = () => {
     const [movies, setMovies] = useState([])
 
     const searchHighlights = async () => {
-        const data = await fetch(`http://omdbapi.com/?s=john wick&plot=full&apiKey=6c3a2d45`);
+        const data = await fetch(`https://omdbapi.com/?s=john wick&plot=full&apiKey=6c3a2d45`);
         const response = await data.json();
         setMovies(response.Search);
     }

@@ -11,7 +11,7 @@ const MoviesPage = ({ match }) => {
 
     const getMovieById = async (id, plot) => {
         setLoading(true)
-        const data = await fetch(`http://www.omdbapi.com/?i=${id}&plot=${plot}&apikey=6c3a2d45`)
+        const data = await fetch(`https://www.omdbapi.com/?i=${id}&plot=${plot}&apikey=6c3a2d45`)
         const response = await data.json();
         setMovie(response);
         setLoading(false)
