@@ -24,6 +24,16 @@ const MoviesPage = ({ match }) => {
         e.preventDefault();
         setMore(!more);
     }
+
+    const handleToList = (text) => {
+        if (text.indexOf(',') === -1) {
+            return text;
+        }
+        let array = text.split(',');
+
+        return (<ul>  {array.map(a => <li> {a}</li>)}  </ul>)
+
+    }
     return (
         <>
 
@@ -46,9 +56,9 @@ const MoviesPage = ({ match }) => {
                             <p className="card-text">Type: {movie?.Type}</p>
                             <p className="card-text">Year: {movie?.Year}</p>
                             <p className="card-text">Rated: {movie.Rated}</p>
-                            <p className="card-text">Genre: {movie.Genre}</p>
-                            <p className="card-text">Director: {movie.Director}</p>
-                            <p className="card-text">Actors: {movie.Actors}</p>
+                            <p className="card-text">Genre: {handleToList(movie.Genre)}</p>
+                            <p className="card-text">Director: {handleToList(movie.Director)}</p>
+                            <p className="card-text">Actors: {handleToList(movie.Actors)}</p>
                             {
                                 movie.Plot.length > 200 && !more ?
                                     <p className="card-text">
